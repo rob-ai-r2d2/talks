@@ -1,0 +1,18 @@
+{
+  "talks": [
+    {
+      "id": "2026-digital-marketing-europe",
+      "title": "Give your AI agent a job, not a prompt",
+      "speaker": "Robert",
+      "event": "Digital Marketing Europe 2026",
+      "year": 2026,
+      "durationMinutes": "30-32",
+      "summary": "A story-first talk showing how a recurring AI agent job can monitor competitors, judge which changes matter commercially and ignore cosmetic noise.",
+      "tags": ["ai-agents", "marketing", "automation", "competitor-monitoring", "hermes-agent"],
+      "path": "talks/2026-digital-marketing-europe",
+      "readme": "talks/2026-digital-marketing-europe/README.md",
+      "slides": "talks/2026-digital-marketing-europe/slides.html",
+      "slideCount": 17
+    }
+  ]
+}
