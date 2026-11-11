@@ -20,18 +20,20 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    env:
+      DEPLOY_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Generate static assets
         run: python3 scripts/build_site.py
       - name: Publish to Cloudflare Pages
-        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+        if: env.DEPLOY_TOKEN != ''
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: d166cad2744036d170b826f2dfbbf20e
         run: npx --yes wrangler@4 pages deploy dist --project-name=aikis-talks --branch=main
       - name: Explain missing credentials
-        if: ${{ secrets.CLOUDFLARE_API_TOKEN == '' }}
+        if: env.DEPLOY_TOKEN == ''
         run: |
           echo "::notice::Build complete. Add the CLOUDFLARE_API_TOKEN repository secret to activate deployment."
